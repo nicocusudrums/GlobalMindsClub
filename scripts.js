@@ -1,10 +1,10 @@
 // =========================
-// INIT EMAILJS
+// INICIALIZAR EMAILJS
 // =========================
-emailjs.init("D7DpJsArACpx3YiNW");
+emailjs.init("D7DpJsArACpx3YiNW"); // tu Public Key de EmailJS
 
 // =========================
-// MENU
+// MENU HAMBURGUESA
 // =========================
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
@@ -20,37 +20,23 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // =========================
-// FORM (UX MEJORADA)
-// =========================
+// FORMULARIO EMAILJS
 const form = document.getElementById('contact-form');
 
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', function (e) {
     e.preventDefault();
-
     emailjs.sendForm('service_rt1jtqh', 'template_rhnceu3', this)
         .then(() => {
-            showMessage("Mensaje enviado correctamente 🚀", "success");
+            alert('¡Mensaje enviado! Gracias por contactarnos.');
             form.reset();
-        })
-        .catch(() => {
-            showMessage("Error al enviar. Intenta nuevamente.", "error");
+        }, (error) => {
+            alert('Error al enviar el mensaje: ' + error.text);
         });
 });
 
-function showMessage(text, type) {
-    let msg = document.createElement('p');
-    msg.textContent = text;
-    msg.className = type;
-    form.appendChild(msg);
-
-    setTimeout(() => msg.remove(), 4000);
-}
-
-// =========================
 // SCROLL SUAVE
-// =========================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             e.preventDefault();
@@ -59,81 +45,101 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// =========================
-// NAVBAR SCROLL (CLASE)
-// =========================
+// NAVBAR DINÁMICO
 const navbar = document.querySelector('.navbar');
-
 window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    if (window.scrollY > 50) {
+        navbar.style.background = "rgba(10, 37, 64, 0.95)";
+        navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,0.3)";
+    } else {
+        navbar.style.background = "rgba(10, 37, 64, 0.85)";
+        navbar.style.boxShadow = "none";
+    }
 });
 
+// SCROLL ANIMATIONS
 // =========================
-// SCROLL ANIMATIONS (MEJOR)
-// =========================
-const reveals = document.querySelectorAll('section, .service, .destination');
+const reveals = document.querySelectorAll('section:not(#contact), .service, .destination');
+
+// Hacemos que #contact esté activo siempre
+const contactSection = document.querySelector('#contact');
+contactSection.classList.add('active');
 
 const revealOnScroll = () => {
-    const trigger = window.innerHeight * 0.85;
-
-    reveals.forEach((el, index) => {
-        const top = el.getBoundingClientRect().top;
-
-        if (top < trigger) {
-            setTimeout(() => {
-                el.classList.add('active');
-            }, index * 100);
-        }
+    const triggerBottom = window.innerHeight * 0.85; // ajuste de activación
+    reveals.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < triggerBottom) el.classList.add('active');
     });
 };
-
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
 // =========================
-// HERO PARALLAX (SUAVE)
+// BOTONES EFECTO CLICK
 // =========================
-const hero = document.querySelector('.hero');
-
-window.addEventListener('scroll', () => {
-    requestAnimationFrame(() => {
-        hero.style.backgroundPositionY = window.scrollY * 0.3 + "px";
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.style.transform = "scale(0.95)";
+        setTimeout(() => { btn.style.transform = "scale(1)"; }, 150);
     });
 });
 
 // =========================
-// CARRUSEL MEJORADO
+// HERO PARALLAX
+// =========================
+const hero = document.querySelector('.hero');
+window.addEventListener('scroll', () => {
+    let offset = window.scrollY;
+    hero.style.backgroundPositionY = offset * 0.5 + "px";
+});
+
+// =========================
+// CARRUSEL FUNCIONAL
 // =========================
 window.addEventListener('load', () => {
     const track = document.querySelector('.carousel-track');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
     const items = Array.from(track.children);
-
     let index = 0;
 
-    const update = () => {
-        const width = items[0].getBoundingClientRect().width + 20;
-        track.style.transform = `translateX(-${index * width}px)`;
+    const getSlideWidth = () => {
+        const gap = parseInt(getComputedStyle(track).gap) || 0;
+        return items[0].getBoundingClientRect().width + gap;
+    };
+
+    const updateCarousel = () => {
+        track.style.transform = `translateX(-${index * getSlideWidth()}px)`;
     };
 
     nextBtn.addEventListener('click', () => {
-        index = (index + 1) % items.length;
-        update();
+        index++;
+        if (index >= items.length) index = 0;
+        updateCarousel();
     });
 
     prevBtn.addEventListener('click', () => {
-        index = (index - 1 + items.length) % items.length;
-        update();
+        index--;
+        if (index < 0) index = items.length - 1;
+        updateCarousel();
     });
 
-    let auto = setInterval(() => nextBtn.click(), 4000);
+    let autoScroll = setInterval(() => {
+        index++;
+        if (index >= items.length) index = 0;
+        updateCarousel();
+    }, 3500);
 
-    track.addEventListener('mouseenter', () => clearInterval(auto));
+    track.addEventListener('mouseenter', () => clearInterval(autoScroll));
     track.addEventListener('mouseleave', () => {
-        auto = setInterval(() => nextBtn.click(), 4000);
+        autoScroll = setInterval(() => {
+            index++;
+            if (index >= items.length) index = 0;
+            updateCarousel();
+        }, 3500);
     });
 
-    window.addEventListener('resize', update);
-    update();
+    window.addEventListener('resize', updateCarousel);
+    updateCarousel();
 });
