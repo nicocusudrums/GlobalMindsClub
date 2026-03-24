@@ -1,0 +1,413 @@
+/* ========================= */
+/* RESET & VARIABLES */
+/* ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #0a2540;
+    --secondary: #113a5c;
+    --accent: #facc15;
+    --accent-strong: #eab308;
+    --text: #ffffff;
+    --gray: #cbd5e1;
+}
+
+/* ========================= */
+/* GENERAL */
+/* ========================= */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--primary);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: rgba(10, 37, 64, 0.85);
+    backdrop-filter: blur(12px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar.scrolled {
+    background: rgba(10, 37, 64, 0.95);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--accent);
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--accent);
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background: radial-gradient(circle at center, #113a5c, #020617);
+}
+
+.hero h1 {
+    font-size: 64px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero p {
+    color: var(--gray);
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+.btn {
+    background: var(--accent);
+    color: #000;
+    padding: 16px 34px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: var(--accent-strong);
+    transform: scale(1.07);
+}
+
+/* ========================= */
+/* SECTIONS */
+/* ========================= */
+section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60%;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: 0.4s;
+}
+
+section.active h2::after {
+    width: 100%;
+}
+
+/* ========================= */
+/* ABOUT */
+/* ========================= */
+.about p {
+    max-width: 700px;
+    margin: 10px auto;
+    color: var(--gray);
+}
+
+/* ========================= */
+/* SERVICES */
+/* ========================= */
+.service-container {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.service {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    padding: 35px;
+    border-radius: 16px;
+    flex: 1;
+    transition: 0.4s;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.service h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.service:hover {
+    transform: translateY(-14px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border-color: var(--accent);
+}
+
+/* ========================= */
+/* DESTINATIONS (CARRUSEL FIX) */
+/* ========================= */
+.carousel-container {
+    position: relative; /* CLAVE PARA POSICIONAR FLECHAS */
+    overflow: hidden;
+    margin-top: 30px;
+    padding: 0 50px; /* espacio para flechas */
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+}
+
+.destination {
+    flex: 0 0 250px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.destination img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.destination span {
+    display: block;
+    padding: 12px 0;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.destination:hover {
+    transform: translateY(-12px) scale(1.04);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* 🔥 BOTONES CARRUSEL CORREGIDOS */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    width: 45px;
+    height: 45px;
+
+    background: var(--accent);
+    border: none;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 20;
+
+    transition: 0.3s;
+}
+
+.carousel-btn:hover {
+    background: var(--accent-strong);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+    left: 0;
+}
+
+.carousel-btn.next {
+    right: 0;
+}
+
+/* ========================= */
+/* CTA */
+/* ========================= */
+.cta {
+    background: linear-gradient(135deg, #facc15, #eab308);
+    color: #000;
+    padding: 70px 10%;
+}
+
+.cta h2 {
+    font-size: 44px;
+}
+
+.cta .btn {
+    background: #000;
+    color: #fff;
+}
+
+/* ========================= */
+/* CONTACT */
+/* ========================= */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input,
+textarea {
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+button {
+    padding: 14px;
+    border: none;
+    background: var(--accent);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--accent-strong);
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+    color: var(--gray);
+}
+
+/* ========================= */
+/* ANIMACIONES */
+/* ========================= */
+section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 48px; }
+    .service-container { flex-direction: column; }
+}
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: rgba(10, 37, 64, 0.95);
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        height: 80vh;
+    }
+
+    .hero h1 { font-size: 34px; }
+    .hero p { font-size: 16px; }
+
+    section { padding: 60px 5%; }
+
+    h2 { font-size: 30px; }
+
+    .destination { flex: 0 0 160px; }
+
+    .carousel-container {
+        padding: 0 30px;
+    }
+}
