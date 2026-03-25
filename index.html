@@ -6,139 +6,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Minds Club</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- EmailJS SDK -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">GMC</div>
-            <div class="menu-toggle">&#9776;</div>
-            <ul class="nav-links">
-                <li><a href="#about">Sobre nosotros</a></li>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#destinations">Destinos</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav class="navbar">
+        <div class="logo">GMC</div>
+        <div class="menu-toggle">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#program">Programa</a></li>
+            <li><a href="#rugby">Rugby</a></li>
+            <li><a href="#destinations">Destinos</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Vive, trabaja y crece en el extranjero</h1>
-            <p>Conectamos personas con oportunidades alrededor del mundo</p>
-            <a href="#contact" class="btn">Empezar ahora</a>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Hay una vida afuera esperándote</h1>
+        <p>No todos llegan a verla, nosotros te mostramos cómo entrar.</p>
+        <a href="#contact" class="btn">Explorar oportunidades</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+    <h2>No es solo viajar, es cambiar TU vida.</h2>
+    <p>
+        Global Minds Club no es una agencia tradicional. No vendemos vuelos ni promesas vacías.
+    </p>
+    <p>
+        Somos una guía estratégica para personas que quieren construir una vida en el extranjero:
+        trabajar, jugar, crecer y adaptarse de verdad.
+    </p>
+    <p>
+        Te acompañamos desde la decisión hasta tus primeros pasos en el nuevo país.
+    </p>
+</section>
+
+<!-- PROGRAMA -->
+<section id="program" class="services">
+    <h2>El proceso</h2>
+    <div class="service-container">
+        <div class="service">
+            <h3>Entrada</h3>
+            <p>Te guiamos con visas, requisitos y el camino más viable según tu perfil.</p>
         </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="about">
-        <h2>Sobre Global Minds Club</h2>
-        <p>
-            Somos una comunidad que ayuda a personas a dar el salto al extranjero. Ya sea para trabajar, estudiar,
-            viajar o desarrollar una carrera deportiva, te acompañamos en todo el proceso.
-        </p>
-        <p>
-            En Global Minds Club creemos que cada experiencia internacional puede transformar tu vida. Te conectamos con
-            oportunidades reales, te guiamos para que tu adaptación sea fácil y te damos las herramientas para que
-            aproveches al máximo tu tiempo fuera de tu país.
-            Nuestro objetivo es que no solo viajes, sino que crezcas, aprendas y construyas tu futuro en cualquier lugar
-            del mundo.
-        </p>
-        <p>
-            Más que un servicio, somos una comunidad de personas con mentalidad global, listas para apoyarte en cada
-            paso de tu aventura internacional. Únete y descubre cómo podemos ayudarte a vivir, trabajar y prosperar
-            fuera de tu país.
-        </p>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="services">
-        <h2>Servicios</h2>
-        <div class="service-container">
-            <div class="service">
-                <h3>Asesoría de Visas</h3>
-                <p>Te guiamos paso a paso para conseguir tu visa sin complicaciones.</p>
-            </div>
-            <div class="service">
-                <h3>Vida en el Extranjero</h3>
-                <p>Información, guías y consejos para adaptarte a tu nuevo destino.</p>
-            </div>
-            <div class="service">
-                <h3>Oportunidades Deportivas</h3>
-                <p>Juegas al rugby? Conectamos jugadores con clubes y experiencias internacionales.</p>
-            </div>
+        <div class="service">
+            <h3>Preparación</h3>
+            <p>CV, estrategia, errores a evitar y cómo posicionarte antes de llegar.</p>
         </div>
-    </section>
-
-    <!-- DESTINATIONS -->
-    <section id="destinations" class="destinations">
-        <h2>Destinos populares</h2>
-        <div class="carousel-container">
-            <button class="carousel-btn prev">&lt;</button>
-            <div class="carousel-track">
-                <a href="pages/australia.html" class="destination">
-                    <img src="img/australia.jpg" alt="Australia">
-                    <span>Australia</span>
-                </a>
-                <a href="pages/nuevazelanda.html" class="destination">
-                    <img src="img/nueva-zelanda.jpg" alt="Nueva Zelanda">
-                    <span>Nueva Zelanda</span>
-                </a>
-                <a href="pages/francia.html" class="destination">
-                    <img src="img/paris.jpg" alt="Francia">
-                    <span>Francia</span>
-                </a>
-                <a href="pages/irlanda.html" class="destination">
-                    <img src="img/irlanda.jpg" alt="Irlanda">
-                    <span>Irlanda</span>
-                </a>
-                <a href="pages/alemania.html" class="destination">
-                    <img src="img/alemania.jpg" alt="Alemania">
-                    <span>Alemania</span>
-                </a>
-                <a href="pages/dinamarca.html" class="destination">
-                    <img src="img/dinamarca.jpg" alt="Dinamarca">
-                    <span>Dinamarca</span>
-                </a>
-                <a href="pages/italia.html" class="destination">
-                    <img src="img/coliseo-roma-1.jpg" alt="Italia">
-                    <span>Italia</span>
-                </a>
-            </div>
-            <button class="carousel-btn next">&gt;</button>
+        <div class="service">
+            <h3>Adaptación</h3>
+            <p>Primeros pasos reales: vivienda, trabajo, entorno y mentalidad.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- CTA -->
-    <section class="cta">
-        <h2>¿Listo para empezar tu vida en el extranjero?</h2>
-        <a href="#contact" class="btn">Contáctanos</a>
-    </section>
+<!-- RUGBY -->
+<section id="rugby" class="rugby">
+    <h2>Rugby internacional</h2>
+    <p>
+        Para muchos jugadores, el rugby es la puerta de entrada al mundo.
+    </p>
+    <p>
+        Te ayudamos a prepararte, entender el sistema y moverte estratégicamente para jugar en el extranjero.
+    </p>
+    <a href="#contact" class="btn">Quiero jugar afuera</a>
+</section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-        <h2>Contacto</h2>
-        <p>Envíanos un mensaje y comienza tu experiencia internacional.</p>
-        <form id="contact-form">
-            <input type="text" name="nombre" placeholder="Nombre" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="mensaje" placeholder="Tu mensaje"></textarea>
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
+<!-- DESTINATIONS -->
+<section id="destinations" class="destinations">
+    <h2>Elige tu destino</h2>
+    <div class="carousel-container">
+        <button class="carousel-btn prev">&lt;</button>
+        <div class="carousel-track">
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2026 Global Minds Club - Todos los derechos reservados</p>
-    </footer>
+            <a href="pages/australia.html" class="destination">
+                <img src="img/australia.jpg">
+                <span>Australia</span>
+            </a>
 
-    <!-- JS -->
-    <script src="scripts.js"></script>
+            <a href="pages/nuevazelanda.html" class="destination">
+                <img src="img/nuevazelanda1.jpg">
+                <span>Nueva Zelanda</span>
+            </a>
+
+            <a href="pages/francia.html" class="destination">
+                <img src="img/paris.jpg">
+                <span>Francia</span>
+            </a>
+
+            <a href="pages/irlanda.html" class="destination">
+                <img src="img/irlanda.jpg">
+                <span>Irlanda</span>
+            </a>
+
+            <a href="pages/alemania.html" class="destination">
+                <img src="img/alemania.jpg">
+                <span>Alemania</span>
+            </a>
+
+            <a href="pages/dinamarca.html" class="destination">
+                <img src="img/dinamarca.jpg">
+                <span>Dinamarca</span>
+            </a>
+
+            <a href="pages/italia.html" class="destination">
+                <img src="img/coliseo-roma-1.jpg">
+                <span>Italia</span>
+            </a>
+
+        </div>
+        <button class="carousel-btn next">&gt;</button>
+    </div>
+</section>
+<!-- EXPERIENCIAS Y OTROS DESTINOS (SIN IMAGEN) -->
+<section id="other-destinations" class="other-destinations">
+    <h2>Otras experiencias y destinos</h2>
+    <p>
+        Además de nuestros destinos más populares, te asesoramos y guiamos para vivir y trabajar en Estados Unidos, México y muchos otros lugares alrededor del mundo.
+    </p>
+    <p>
+        No importa cuál sea tu destino, tenemos la experiencia para acompañarte desde la planificación hasta tus primeros pasos en el extranjero.
+    </p>
+    <p style="font-style: italic; color: var(--gray);">
+        Consulta con nosotros si quieres explorar otros países. ¡Tu próxima experiencia internacional podría estar más cerca de lo que imaginas!
+    </p>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonials">
+    <h2>Historias reales</h2>
+    <p>Mas de 40 personas ya viven, trabajan y crecen en el exterior...</p>
+    <div class="testimonial-container">
+
+        <div class="testimonial">
+            <p>"Hace un año estoy viviendo, creciendo y aprendiendo en un pais donde no hablan mi idioma, pero es un gran desafio para mi."</p>
+            <span>- Agustina, Oranienburg, Alemania.</span>
+        </div>
+
+        <div class="testimonial">
+            <p>"De un pueblo pequeño de Cordoba, a hacer temporada de invierno en centros de esqui"</p>
+            <span>- Alvaro, Andorra</span>
+        </div>
+
+        <div class="testimonial">
+            <p>"El rugby me abrió puertas que no imaginaba, y nunca pasaron por mi mente."</p>
+            <span>- Federico, Berlin, Alemania.</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Todo depende de cómo empieces.</h2>
+    <p>Depende de tu perfil, tu mentalidad y tus ganas de crecer.</p>
+    <a href="#contact" class="btn">Ver si califico</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h2>Da el primer paso</h2>
+    <p>No trabajamos con todo el mundo, buscamos personas comprometidas a dar el salto.</p>
+    <form id="contact-form">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="mensaje" placeholder="¿Qué te gustaría hacer?"></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Global Minds Club. Todos Los Derechos Reservados. </p>
+</footer>
+
+<script src="scripts.js"></script>
 </body>
 </html>

@@ -1,11 +1,8 @@
-// =========================
+
 // INICIALIZAR EMAILJS
-// =========================
 emailjs.init("D7DpJsArACpx3YiNW"); // tu Public Key de EmailJS
 
-// =========================
 // MENU HAMBURGUESA
-// =========================
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
 
@@ -19,7 +16,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-// =========================
 // FORMULARIO EMAILJS
 const form = document.getElementById('contact-form');
 
@@ -58,7 +54,6 @@ window.addEventListener('scroll', () => {
 });
 
 // SCROLL ANIMATIONS
-// =========================
 const reveals = document.querySelectorAll('section:not(#contact), .service, .destination');
 
 // Hacemos que #contact esté activo siempre
@@ -75,9 +70,7 @@ const revealOnScroll = () => {
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-// =========================
 // BOTONES EFECTO CLICK
-// =========================
 document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('click', () => {
         btn.style.transform = "scale(0.95)";
@@ -85,18 +78,14 @@ document.querySelectorAll('.btn').forEach(btn => {
     });
 });
 
-// =========================
 // HERO PARALLAX
-// =========================
 const hero = document.querySelector('.hero');
 window.addEventListener('scroll', () => {
     let offset = window.scrollY;
     hero.style.backgroundPositionY = offset * 0.5 + "px";
 });
 
-// =========================
 // CARRUSEL FUNCIONAL
-// =========================
 window.addEventListener('load', () => {
     const track = document.querySelector('.carousel-track');
     const prevBtn = document.querySelector('.carousel-btn.prev');
