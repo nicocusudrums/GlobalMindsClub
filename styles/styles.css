@@ -360,12 +360,37 @@ button:hover {
 /* FOOTER */
 /* ========================= */
 footer {
-    text-align: center;
-    padding: 20px;
+    padding: 60px 10% 20px;
     background: #020617;
     color: var(--gray);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.footer-social a {
+    color: var(--text);
+    margin-left: 20px;
+    text-decoration: none;
     font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--accent);
+}
+
+.copyright {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.6;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 20px;
 }
 
 /* ========================= */
@@ -500,10 +525,17 @@ body {
 
 .testimonial {
     flex: 1;
-    padding: 25px;
+    padding: 30px;
     border-radius: 12px;
-    background: rgba(255,255,255,0.05);
-    font-style: italic;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.05);
+    text-align: left;
+}
+
+.stars {
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-size: 14px;
 }
 
 .testimonial span {
@@ -600,4 +632,33 @@ body.country-page .hero-content {
     margin: 10px auto;
     font-size: 18px;
     color: var(--gray);
+}
+
+/* ========================= */
+/* WHATSAPP FLOAT */
+/* ========================= */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 10000;
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #128c7e;
+}
+
+.whatsapp-float img {
+    width: 35px;
+    height: 35px;
 }

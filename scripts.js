@@ -63,9 +63,13 @@ window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navbar.style.background = "rgba(10, 37, 64, 0.95)";
         navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,0.3)";
+        navbar.classList.add('scrolled');
+        navbar.style.padding = "10px 10%";
     } else {
         navbar.style.background = "rgba(10, 37, 64, 0.85)";
         navbar.style.boxShadow = "none";
+        navbar.classList.remove('scrolled');
+        navbar.style.padding = "20px 10%";
     }
 });
 
