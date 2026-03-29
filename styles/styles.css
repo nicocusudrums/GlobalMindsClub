@@ -103,6 +103,21 @@ body {
     text-align: center;
     padding: 0 20px;
     background: radial-gradient(circle at center, #113a5c, #020617);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Esto lo pone por delante del overlay ::before */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(2,6,23,0.3), rgba(2,6,23,0.7));
+    z-index: 1;
 }
 
 .hero h1 {
@@ -323,6 +338,15 @@ textarea {
     border-radius: 8px;
     border: none;
     outline: none;
+    background: rgba(255,255,255,0.05);
+    color: var(--text);
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent);
+    background: rgba(255,255,255,0.08);
 }
 
 button {

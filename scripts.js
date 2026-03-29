@@ -49,10 +49,13 @@ form.addEventListener('submit', function (e) {
 // SCROLL SUAVE
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth' });
+        const href = this.getAttribute('href');
+        if (href !== "#" && href !== "") {
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     });
 });
@@ -61,13 +64,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        navbar.style.background = "rgba(10, 37, 64, 0.95)";
-        navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,0.3)";
         navbar.classList.add('scrolled');
         navbar.style.padding = "10px 10%";
     } else {
-        navbar.style.background = "rgba(10, 37, 64, 0.85)";
-        navbar.style.boxShadow = "none";
         navbar.classList.remove('scrolled');
         navbar.style.padding = "20px 10%";
     }
