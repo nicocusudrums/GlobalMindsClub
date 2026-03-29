@@ -339,6 +339,23 @@ button:hover {
     background: var(--accent-strong);
 }
 
+/* MENSAJES DE ESTADO FORMULARIO */
+#form-message {
+    font-size: 14px;
+    text-align: center;
+    min-height: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+#form-message.success {
+    color: #4ade80; /* Verde */
+}
+
+#form-message.error {
+    color: #f87171; /* Rojo */
+}
+
 /* ========================= */
 /* FOOTER */
 /* ========================= */
@@ -347,6 +364,8 @@ footer {
     padding: 20px;
     background: #020617;
     color: var(--gray);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 14px;
 }
 
 /* ========================= */
@@ -530,6 +549,13 @@ body {
     margin-bottom: 12px;
     font-size: 18px;
     color: var(--accent);
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Ajusta este valor si lo quieres más grande o pequeño */
+    width: auto;
 }
 
 .info-card p {

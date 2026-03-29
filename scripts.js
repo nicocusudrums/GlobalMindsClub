@@ -21,12 +21,28 @@ const form = document.getElementById('contact-form');
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
+    
+    const btn = document.getElementById('submit-btn');
+    const msg = document.getElementById('form-message');
+    const originalText = btn.innerText;
+
+    btn.innerText = "Enviando...";
+    msg.className = "";
+    msg.innerText = "";
+
     emailjs.sendForm('service_rt1jtqh', 'template_rhnceu3', this)
         .then(() => {
-            alert('¡Mensaje enviado! Gracias por contactarnos.');
+            msg.innerText = '¡Mensaje enviado! Nos pondremos en contacto pronto.';
+            msg.className = "success";
             form.reset();
         }, (error) => {
-            alert('Error al enviar el mensaje: ' + error.text);
+            msg.innerText = 'Hubo un error. Por favor intenta nuevamente.';
+            msg.className = "error";
+            console.error('EmailJS Error:', error);
+        })
+        .finally(() => {
+            btn.innerText = originalText;
+            setTimeout(() => { msg.innerText = ""; }, 5000); // Borrar mensaje a los 5s
         });
 });
 

@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Minds Club</title>
+    <meta name="description" content="Global Minds Club: Asesoría estratégica para vivir, trabajar y jugar al rugby en el extranjero. Tu guía para Australia, Nueva Zelanda y Europa.">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" type="image/png" href="img/favicon.png?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
@@ -14,7 +16,7 @@
 
 <header>
     <nav class="navbar">
-        <div class="logo">GMC</div>
+        <div class="logo"><img src="img/favicon.png?v=3" alt="GMC Logo"></div>
         <div class="menu-toggle">&#9776;</div>
         <ul class="nav-links">
             <li><a href="#about">Sobre</a></li>
@@ -144,22 +146,22 @@
 <!-- TESTIMONIOS -->
 <section class="testimonials">
     <h2>Historias reales</h2>
-    <p>Mas de 40 personas ya viven, trabajan y crecen en el exterior...</p>
+    <p>Más de 40 personas ya viven, trabajan y crecen en el exterior...</p>
     <div class="testimonial-container">
 
         <div class="testimonial">
-            <p>"Hace un año estoy viviendo, creciendo y aprendiendo en un pais donde no hablan mi idioma, pero es un gran desafio para mi."</p>
+            <p>"Hace un año estoy viviendo, creciendo y aprendiendo en un país donde no hablan mi idioma, pero es un gran desafío para mí."</p>
             <span>- Agustina, Oranienburg, Alemania.</span>
         </div>
 
         <div class="testimonial">
-            <p>"De un pueblo pequeño de Cordoba, a hacer temporada de invierno en centros de esqui"</p>
+            <p>"De un pueblo pequeño de Córdoba, a hacer temporada de invierno en centros de esquí."</p>
             <span>- Alvaro, Andorra</span>
         </div>
 
         <div class="testimonial">
-            <p>"El rugby me abrió puertas que no imaginaba, y nunca pasaron por mi mente."</p>
-            <span>- Federico, Berlin, Alemania.</span>
+            <p>"El rugby me abrió puertas que no imaginaba, y que nunca pasaron por mi mente."</p>
+            <span>- Federico, Berlín, Alemania.</span>
         </div>
 
     </div>
@@ -180,7 +182,8 @@
         <input type="text" name="nombre" placeholder="Nombre" required>
         <input type="email" name="email" placeholder="Email" required>
         <textarea name="mensaje" placeholder="¿Qué te gustaría hacer?"></textarea>
-        <button type="submit">Enviar</button>
+        <button type="submit" id="submit-btn">Enviar</button>
+        <p id="form-message"></p>
     </form>
 </section>
 
