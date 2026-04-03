@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Italia - Global Minds Club</title>
+    <meta name="description" content="Guía estratégica para vivir, trabajar y jugar al rugby en Italia. GMC te ayuda en tu adaptación y búsqueda de oportunidades.">
     <link rel="stylesheet" href="../styles/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -129,12 +130,23 @@
         <input type="text" name="nombre" placeholder="Nombre" required>
         <input type="email" name="email" placeholder="Email" required>
         <textarea name="mensaje" placeholder="¿Qué te gustaría hacer en Italia?"></textarea>
-        <button type="submit">Enviar</button>
+        <button type="submit" id="submit-btn">Enviar</button>
+        <p id="form-message"></p>
     </form>
 </section>
 
 <footer>
-    <p>© 2026 Global Minds Club. Todos los derechos reservados.</p>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <img src="../img/favicon.png?v=3" alt="GMC Logo" style="height: 40px;">
+            <p>Conectando mentes con el mundo.</p>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+    </div>
+    <p class="copyright">© 2026 Global Minds Club. Todos los derechos reservados.</p>
 </footer>
 
 <a href="https://wa.me/5493816855266" class="whatsapp-float" target="_blank" rel="noopener noreferrer">

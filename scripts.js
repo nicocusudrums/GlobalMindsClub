@@ -6,25 +6,30 @@ emailjs.init("D7DpJsArACpx3YiNW"); // tu Public Key de EmailJS
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
 
-toggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-});
-
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        nav.classList.remove('active');
+if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
     });
-});
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+        });
+    });
+}
 
 // FORMULARIO EMAILJS
 const form = document.getElementById('contact-form');
-
-form.addEventListener('submit', function (e) {
+if (form) {
+    form.addEventListener('submit', function (e) {
     e.preventDefault();
     
-    const btn = document.getElementById('submit-btn');
+    // Intentar buscar el botón dentro del formulario si no tiene ID
+    const btn = document.getElementById('submit-btn') || this.querySelector('button[type="submit"]');
     const msg = document.getElementById('form-message');
     const originalText = btn.innerText;
+
+    if (!msg) return; // Evitar error si falta el contenedor de mensaje
 
     btn.innerText = "Enviando...";
     msg.className = "";
@@ -45,6 +50,7 @@ form.addEventListener('submit', function (e) {
             setTimeout(() => { msg.innerText = ""; }, 5000); // Borrar mensaje a los 5s
         });
 });
+}
 
 // SCROLL SUAVE
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -64,11 +70,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-        navbar.style.padding = "10px 10%";
+        navbar.classList.add('scrolled'); // El padding se maneja en CSS
     } else {
-        navbar.classList.remove('scrolled');
-        navbar.style.padding = "20px 10%";
+        navbar.classList.remove('scrolled'); // El padding se maneja en CSS
     }
 });
 
@@ -77,17 +81,26 @@ const reveals = document.querySelectorAll('section:not(#contact), .service, .des
 
 // Hacemos que #contact esté activo siempre
 const contactSection = document.querySelector('#contact');
-contactSection.classList.add('active');
+if (contactSection) { // Añadido un chequeo para asegurar que la sección existe
+    contactSection.classList.add('active');
+}
 
-const revealOnScroll = () => {
-    const triggerBottom = window.innerHeight * 0.85; // ajuste de activación
-    reveals.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-        if (elementTop < triggerBottom) el.classList.add('active');
-    });
+// ANIMACIONES CON INTERSECTION OBSERVER (Más profesional y eficiente)
+const observerOptions = {
+    threshold: 0.15 // Se activa cuando el 15% del elemento es visible
 };
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Opcional: dejar de observar si solo quieres que anime una vez
+            // observer.unobserve(entry.target); 
+        }
+    });
+}, observerOptions);
+
+reveals.forEach(el => observer.observe(el));
 
 // BOTONES EFECTO CLICK
 document.querySelectorAll('.btn').forEach(btn => {
@@ -100,6 +113,7 @@ document.querySelectorAll('.btn').forEach(btn => {
 // HERO PARALLAX
 const hero = document.querySelector('.hero');
 window.addEventListener('scroll', () => {
+    if (!hero) return;
     let offset = window.scrollY;
     hero.style.backgroundPositionY = offset * 0.5 + "px";
 });
@@ -107,6 +121,7 @@ window.addEventListener('scroll', () => {
 // CARRUSEL FUNCIONAL
 window.addEventListener('load', () => {
     const track = document.querySelector('.carousel-track');
+    if (!track) return; // Salir si no hay carrusel en la página
     const prevBtn = document.querySelector('.carousel-btn.prev');
     const nextBtn = document.querySelector('.carousel-btn.next');
     const items = Array.from(track.children);
@@ -151,3 +166,19 @@ window.addEventListener('load', () => {
     window.addEventListener('resize', updateCarousel);
     updateCarousel();
 });
+
+// EFECTO DE NÚMEROS INCREMENTALES (Para historias reales)
+const animateNumbers = () => {
+    const stats = document.querySelectorAll('.stat-number');
+    stats.forEach(stat => {
+        const target = +stat.getAttribute('data-target');
+        const count = +stat.innerText;
+        const speed = target / 100;
+        if (count < target) {
+            stat.innerText = Math.ceil(count + speed);
+            setTimeout(animateNumbers, 20);
+        } else {
+            stat.innerText = target;
+        }
+    });
+};

@@ -45,12 +45,17 @@ body {
 .navbar.scrolled {
     background: rgba(10, 37, 64, 0.95);
     box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    padding: 10px 10%; /* Ajuste de padding al hacer scroll */
 }
 
 .logo {
     font-size: 28px;
     font-weight: 700;
     color: var(--accent);
+    /* Estos estilos ya no son necesarios para el logo de imagen */
+    display: flex;
+    align-items: center;
+    height: 50px; /* Asegura que el contenedor tenga altura para el logo */
 }
 
 .nav-links {
@@ -107,6 +112,12 @@ body {
     overflow: hidden;
 }
 
+.country-page .hero-content {
+    background: rgba(0,0,0,0.4); /* Fondo sutil para el texto en páginas de país */
+    border-radius: 12px;
+    padding: 20px 30px;
+}
+
 .hero-content {
     position: relative;
     z-index: 2; /* Esto lo pone por delante del overlay ::before */
@@ -150,6 +161,7 @@ body {
 .btn:hover {
     background: var(--accent-strong);
     transform: scale(1.07);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Sombra al hacer hover */
 }
 
 /* ========================= */
@@ -347,6 +359,7 @@ textarea {
 input:focus, textarea:focus {
     border-color: var(--accent);
     background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.3); /* Sombra al enfocar */
 }
 
 button {
@@ -361,6 +374,7 @@ button {
 
 button:hover {
     background: var(--accent-strong);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4); /* Sombra al hacer hover */
 }
 
 /* MENSAJES DE ESTADO FORMULARIO */
@@ -384,7 +398,7 @@ button:hover {
 /* FOOTER */
 /* ========================= */
 footer {
-    padding: 60px 10% 20px;
+    padding: 30px 20px 15px; /* Reducido el padding superior de 60px a 30px */
     background: #020617;
     color: var(--gray);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -394,7 +408,8 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    max-width: 1200px; /* Limita el ancho máximo del contenido del footer */
+    margin: 0 auto 20px auto; /* Reducido el margen inferior de 40px a 20px */
 }
 
 .footer-social a {
@@ -410,11 +425,13 @@ footer {
 }
 
 .copyright {
+    max-width: 1200px; /* Limita el ancho máximo del texto de copyright */
+    margin: 0 auto; /* Centra el texto de copyright horizontalmente */
     text-align: center;
     font-size: 12px;
     opacity: 0.6;
     border-top: 1px solid rgba(255,255,255,0.05);
-    padding-top: 20px;
+    padding-top: 15px; /* Reducido el espacio sobre el copyright de 20px a 15px */
 }
 
 /* ========================= */
